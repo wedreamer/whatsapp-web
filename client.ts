@@ -28,4 +28,6 @@ const client = new Client({
 
 registerEvent(client)
 
+// client.createGroup()
+
 export { sessionData, client, SESSION_FILE_PATH }
