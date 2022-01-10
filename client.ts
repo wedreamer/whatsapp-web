@@ -6,7 +6,7 @@ import { everyoneContacts } from "./handles/everyoneContacts";
 import { sendMedia } from "./handles/sendMedia";
 import { sendLocation } from "./handles/sendLocation";
 import { sendContact } from "./handles/sendContact";
-import { groupJoinListener } from "./handles/groupJoinListener";
+import { groupJoinListener } from "./listener/groupJoinListener";
 import { groupLeaveListener } from "./handles/groupLeaveListener";
 import { groupUpdateListener } from "./handles/groupUpdateListener";
 import registerEvent from "./init";

@@ -6,12 +6,12 @@ import { everyoneContacts } from "./handles/everyoneContacts";
 import { sendMedia } from "./handles/sendMedia";
 import { sendLocation } from "./handles/sendLocation";
 import { sendContact } from "./handles/sendContact";
-import { groupJoinListener } from "./handles/groupJoinListener";
-import { groupLeaveListener } from "./handles/groupLeaveListener";
-import { groupUpdateListener } from "./handles/groupUpdateListener";
+import { groupJoinListener } from "./listener/groupJoinListener";
 import { sessionData, SESSION_FILE_PATH } from "./client";
 import { sendButton } from "./handles/sendButtons";
 import { sendList } from "./handles/sendList";
+import { groupLeaveListener } from "./listener/groupLeaveListener";
+import { groupUpdateListener } from "./listener/groupUpdateListener";
 
 
 const registerEvent = (client: Client, fristInit: boolean = true) => {
@@ -67,8 +67,46 @@ const registerEvent = (client: Client, fristInit: boolean = true) => {
         await sendList(msg)
         console.log(msg)
         // https://github.com/pedroslopez/whatsapp-web.js/blob/main/example.js
-        
+
     });
+
+    client.on('message_create', (msg) => {
+        // Fired on all message creations, including your own
+        if (msg.fromMe) {
+            // do stuff here
+        }
+    });
+
+
+    client.on('message_revoke_everyone', async (after, before) => {
+        // Fired whenever a message is deleted by anyone (including you)
+        console.log(after); // message after it was deleted.
+        if (before) {
+            console.log(before); // message before it was deleted.
+        }
+    });
+
+    client.on('message_revoke_me', async (msg) => {
+        // Fired whenever a message is only deleted in your own view.
+        console.log(msg.body); // message before it was deleted.
+    });
+
+    client.on('message_ack', (msg, ack) => {
+        /*
+            == ACK VALUES ==
+            ACK_ERROR: -1
+            ACK_PENDING: 0
+            ACK_SERVER: 1
+            ACK_DEVICE: 2
+            ACK_READ: 3
+            ACK_PLAYED: 4
+        */
+
+        if (ack == 3) {
+            // The message was read
+        }
+    });
+
 }
 
 export default registerEvent
