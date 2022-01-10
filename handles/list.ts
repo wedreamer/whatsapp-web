@@ -5,6 +5,6 @@ export const list = async (msg: WAWebJS.Message) => {
     if (msg.body === '!list') {
         let sections = [{ title: 'sectionTitle', rows: [{ title: 'ListItem1', description: 'desc' }, { title: 'ListItem2' }] }];
         let list = new List('List body', 'btnText', sections, 'Title', 'footer');
-        client.sendMessage(msg.from, list);
+        await client.sendMessage(msg.from, list);
     }
 }

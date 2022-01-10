@@ -5,6 +5,9 @@ export const ping = async (msg: WAWebJS.Message) => {
     // string | MessageMedia | Location | Contact | Contact[] | List | Buttons
     if (msg.body === '!ping') {
         // Send a new message to the same chat
-        client.sendMessage(msg.from, 'pong');
+        const chat = await msg.getChat()
+        console.log(chat)
+        console.log(client)
+        await chat.sendMessage('pong');
     }
 }
