@@ -14,7 +14,9 @@ if (existsSync(SESSION_FILE_PATH)) {
 
 const client = new Client({
     // puppeteer
-    session: sessionData
+    session: sessionData,
+    restartOnAuthFail: false,
+    qrTimeoutMs: 5000,
 });
 
 registerEvent(client)
