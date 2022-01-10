@@ -39,6 +39,7 @@ import { typing } from "./handles/typing";
 import { desc } from "./handles/desc";
 import { status } from "./handles/status";
 import { location } from "./handles/location";
+import { getInviteCode } from "./handles/getInviteCode";
 
 
 const registerEvent = (client: Client, fristInit: boolean = true) => {
@@ -92,7 +93,7 @@ const registerEvent = (client: Client, fristInit: boolean = true) => {
         await sendContact(msg)
         await sendButton(msg)
         await sendList(msg)
-        console.log(msg)
+        // console.log(msg)
         // https://github.com/pedroslopez/whatsapp-web.js/blob/main/example.js
 
         await pingReply(msg)
@@ -122,7 +123,7 @@ const registerEvent = (client: Client, fristInit: boolean = true) => {
         await jumpto(msg)
         await buttons(msg)
         await list(msg)
-
+        await getInviteCode(msg)
     });
 
     client.on('message_create', (msg) => {
@@ -156,7 +157,7 @@ const registerEvent = (client: Client, fristInit: boolean = true) => {
             ACK_READ: 3
             ACK_PLAYED: 4
         */
-
+        console.info(`message: ${msg.id._serialized} ack +++ ${ack}`)
         if (ack == 3) {
             // The message was read
         }
