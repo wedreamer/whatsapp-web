@@ -5,17 +5,17 @@ import { client } from "../client";
 export const sendMedia = async (msg: WAWebJS.Message) => {
     // string | MessageMedia | Location | Contact | Contact[] | List | Buttons
     if (msg.body === '搞点视频') {
-        const url = `https://www.bilibili.com/video/BV1DY411a7kz?spm_id_from=333.851.b_7265636f6d6d656e64.6`
+        const url = `https://user-images.githubusercontent.com/73140494/137400450-2638cf8e-f2bb-4bc7-81f6-b502662f8c96.mp4`
         let mimetype: string;
         const response = await axios.get(url, {
             responseType: 'arraybuffer'
         })
         mimetype = response.headers['content-type'];
         const attachment = response.data.toString('base64');
-        const media = new MessageMedia(mimetype, attachment, "zfcctv.mp4")
+        const media = new MessageMedia(mimetype, attachment, "137400450-2638cf8e-f2bb-4bc7-81f6-b502662f8c96.mp4")
         const chat = await msg.getChat()
         const caption = await getCaption(`https://i0.hdslb.com/bfs/archive/b21fd6bd57d5ada841a8c13ea44b760aa4a28e0d.jpg@672w_378h_1c_100q.webp`)
-        chat.sendMessage(media, { caption });
+        await chat.sendMessage(media, { caption });
 
 
         // const media = await MessageMedia.fromUrl("http://img.zhufengpeixun.cn/zfcctv.mp4")
