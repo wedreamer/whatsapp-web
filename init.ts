@@ -58,14 +58,16 @@ const registerEvent = (client: Client, fristInit: boolean = true) => {
     });
 
     client.on('message', async msg => {
-        everyoneContacts(msg)
-        sendText(msg)
-        sendMedia(msg)
-        sendLocation(msg)
-        sendContact(msg)
-        sendButton(msg)
-        sendList(msg)
+        await everyoneContacts(msg)
+        await sendText(msg)
+        await sendMedia(msg)
+        await sendLocation(msg)
+        await sendContact(msg)
+        await sendButton(msg)
+        await sendList(msg)
         console.log(msg)
+        // https://github.com/pedroslopez/whatsapp-web.js/blob/main/example.js
+        
     });
 }
 
