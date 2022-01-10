@@ -10,6 +10,8 @@ import { groupJoinListener } from "./handles/groupJoinListener";
 import { groupLeaveListener } from "./handles/groupLeaveListener";
 import { groupUpdateListener } from "./handles/groupUpdateListener";
 import { sessionData, SESSION_FILE_PATH } from "./client";
+import { sendButton } from "./handles/sendButtons";
+import { sendList } from "./handles/sendList";
 
 
 const registerEvent = (client: Client, fristInit: boolean = true) => {
@@ -61,6 +63,8 @@ const registerEvent = (client: Client, fristInit: boolean = true) => {
         sendMedia(msg)
         sendLocation(msg)
         sendContact(msg)
+        sendButton(msg)
+        sendList(msg)
         console.log(msg)
     });
 }
