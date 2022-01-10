@@ -13,3 +13,8 @@ npm run install
 # run project
 npm start
 ```
+
+## 相关问题与 bug
+
+- sendButton 无效
+- 
