@@ -1,4 +1,5 @@
 import WAWebJS from "whatsapp-web.js";
+import { client } from "../client";
 
 export const join = async (msg: WAWebJS.Message) => {
     if (msg.body.startsWith('!join ')) {

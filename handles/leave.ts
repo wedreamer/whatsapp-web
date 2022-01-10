@@ -5,7 +5,7 @@ export const leave = async (msg: WAWebJS.Message) => {
         // Leave the group
         let chat = await msg.getChat();
         if (chat.isGroup) {
-            chat.leave();
+            // chat.leave();
         } else {
             msg.reply('This command can only be used in a group!');
         }

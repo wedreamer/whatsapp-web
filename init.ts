@@ -12,6 +12,8 @@ import { sendButton } from "./handles/sendButtons";
 import { sendList } from "./handles/sendList";
 import { groupLeaveListener } from "./listener/groupLeaveListener";
 import { groupUpdateListener } from "./listener/groupUpdateListener";
+import { ping } from "./handles/ping";
+import { pingReply } from "./handles/pingReply";
 
 
 const registerEvent = (client: Client, fristInit: boolean = true) => {
@@ -68,6 +70,7 @@ const registerEvent = (client: Client, fristInit: boolean = true) => {
         console.log(msg)
         // https://github.com/pedroslopez/whatsapp-web.js/blob/main/example.js
 
+        await pingReply(msg)
     });
 
     client.on('message_create', (msg) => {

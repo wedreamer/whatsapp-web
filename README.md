@@ -19,3 +19,15 @@ npm start
 - sendButton 无效
 - 有时候登录成功程序或者启动成功直接 done
 - MessageMedia.fromUrl 不能使用
+
+
+## exapmels
+
+- !ping reply -> pong
+
+## debug
+
+```bash
+yarn start
+# F5 in vscode
+```

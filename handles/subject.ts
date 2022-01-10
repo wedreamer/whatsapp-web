@@ -8,7 +8,7 @@ export const subject = async (msg: WAWebJS.Message) => {
         if (chat.isGroup) {
             let newSubject = msg.body.slice(9);
             // todo: fix
-            chat.setSubject(newSubject);
+            // chat.setSubject(newSubject);
         } else {
             msg.reply('This command can only be used in a group!');
         }

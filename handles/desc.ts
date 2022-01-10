@@ -6,7 +6,7 @@ export const echo = async (msg: WAWebJS.Message) => {
         let chat = await msg.getChat();
         if (chat.isGroup) {
             let newDescription = msg.body.slice(6);
-            chat.setDescription(newDescription);
+            // chat.setDescription(newDescription);
         } else {
             msg.reply('This command can only be used in a group!');
         }
