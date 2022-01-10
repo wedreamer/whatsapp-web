@@ -7,9 +7,10 @@ export const sendto = async (msg: WAWebJS.Message) => {
         let number = msg.body.split(' ')[1];
         let messageIndex = msg.body.indexOf(number) + number.length;
         let message = msg.body.slice(messageIndex, msg.body.length);
+        // 8617630802710@c.us
         number = number.includes('@c.us') ? number : `${number}@c.us`;
         let chat = await msg.getChat();
-        chat.sendSeen();
-        client.sendMessage(number, message);
+        await chat.sendSeen();
+        await client.sendMessage(number, message);
     }
 }

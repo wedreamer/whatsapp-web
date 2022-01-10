@@ -4,7 +4,7 @@ export const quoteinfo = async (msg: WAWebJS.Message) => {
     if (msg.body === '!quoteinfo' && msg.hasQuotedMsg) {
         const quotedMsg = await msg.getQuotedMessage();
 
-        quotedMsg.reply(`
+        await quotedMsg.reply(`
             ID: ${quotedMsg.id._serialized}
             Type: ${quotedMsg.type}
             Author: ${quotedMsg.author || quotedMsg.from}
