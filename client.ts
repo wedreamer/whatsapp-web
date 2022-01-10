@@ -1,14 +1,5 @@
 import { Client } from "whatsapp-web.js";
-import { existsSync, writeFile } from "fs";
-import * as qrcode from "qrcode-terminal";
-import { sendText } from "./handles/sendText";
-import { everyoneContacts } from "./handles/everyoneContacts";
-import { sendMedia } from "./handles/sendMedia";
-import { sendLocation } from "./handles/sendLocation";
-import { sendContact } from "./handles/sendContact";
-import { groupJoinListener } from "./listener/groupJoinListener";
-import { groupLeaveListener } from "./handles/groupLeaveListener";
-import { groupUpdateListener } from "./handles/groupUpdateListener";
+import { existsSync } from "fs";
 import registerEvent from "./init";
 
 // Path where the session data will be stored
