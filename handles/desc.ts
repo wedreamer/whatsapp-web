@@ -1,6 +1,6 @@
 import WAWebJS from "whatsapp-web.js";
 
-export const echo = async (msg: WAWebJS.Message) => {
+export const desc = async (msg: WAWebJS.Message) => {
     if (msg.body.startsWith('!desc ')) {
         // Change the group description
         let chat = await msg.getChat();

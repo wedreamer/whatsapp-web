@@ -23,7 +23,8 @@ npm start
 
 ## exapmels
 
-- !ping reply -> pong
+- !ping reply -> 回复 `!ping reply` 内容为 pong
+- 
 
 ## debug
 

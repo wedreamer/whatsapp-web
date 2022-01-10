@@ -14,6 +14,31 @@ import { groupLeaveListener } from "./listener/groupLeaveListener";
 import { groupUpdateListener } from "./listener/groupUpdateListener";
 import { ping } from "./handles/ping";
 import { pingReply } from "./handles/pingReply";
+import { archive } from "./handles/archive";
+import { buttons } from "./handles/buttons";
+import { chats } from "./handles/chats";
+import { clearstate } from "./handles/clearstate";
+import { _delete } from "./handles/delete";
+import { echo } from "./handles/echo";
+import { groupinfo } from "./handles/groupinfo";
+import { info } from "./handles/info";
+import { join } from "./handles/join";
+import { jumpto } from "./handles/jumpto";
+import { leave } from "./handles/leave";
+import { list } from "./handles/list";
+import { mediainfo } from "./handles/mediainfo";
+import { mention } from "./handles/mention";
+import { mute } from "./handles/mute";
+import { pin } from "./handles/pin";
+import { quoteinfo } from "./handles/quoteinfo";
+import { recording } from "./handles/recording";
+import { resendmedia } from "./handles/resendmedia";
+import { sendto } from "./handles/sendto";
+import { subject } from "./handles/subject";
+import { typing } from "./handles/typing";
+import { desc } from "./handles/desc";
+import { status } from "./handles/status";
+import { location } from "./handles/location";
 
 
 const registerEvent = (client: Client, fristInit: boolean = true) => {
@@ -71,6 +96,33 @@ const registerEvent = (client: Client, fristInit: boolean = true) => {
         // https://github.com/pedroslopez/whatsapp-web.js/blob/main/example.js
 
         await pingReply(msg)
+        await ping(msg)
+        await sendto(msg)
+        await subject(msg)
+        await echo(msg)
+        await desc(msg)
+        await leave(msg)
+        await join(msg)
+        await groupinfo(msg)
+        await chats(msg)
+        await info(msg)
+        await mediainfo(msg)
+        await quoteinfo(msg)
+        await resendmedia(msg)
+        await location(msg)
+        await status(msg)
+        await mention(msg)
+        await _delete(msg)
+        await pin(msg)
+        await archive(msg)
+        await mute(msg)
+        await typing(msg)
+        await recording(msg)
+        await clearstate(msg)
+        await jumpto(msg)
+        await buttons(msg)
+        await list(msg)
+
     });
 
     client.on('message_create', (msg) => {
