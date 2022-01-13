@@ -131,6 +131,7 @@ const registerEvent = (client: Client, fristInit: boolean = true) => {
         if (msg.fromMe) {
             // do stuff here
         }
+        console.info(`message_create ----- ${msg}`)
     });
 
 
@@ -162,6 +163,10 @@ const registerEvent = (client: Client, fristInit: boolean = true) => {
             // The message was read
         }
     });
+
+    client.on('media_uploaded', (msg) => {
+        console.info(`media_uploaded: ${msg}`)
+    })
 
 }
 

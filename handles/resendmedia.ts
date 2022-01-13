@@ -7,7 +7,7 @@ export const resendmedia = async (msg: WAWebJS.Message) => {
         // TODO: bug
         if (quotedMsg.hasMedia) {
             const attachmentData = await quotedMsg.downloadMedia();
-            client.sendMessage(msg.from, attachmentData, { caption: 'Here\'s your requested media.' });
+            await client.sendMessage(msg.from, attachmentData, { caption: 'Here\'s your requested media.' });
         }
     }
 }
